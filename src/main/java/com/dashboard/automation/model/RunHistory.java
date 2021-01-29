@@ -1,15 +1,34 @@
 package com.dashboard.automation.model;
 
+import lombok.*;
+
+import javax.persistence.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(name = "run_history")
 public class RunHistory {
-
-
-    int id;
-    int runId;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", nullable = false)
+    Integer id;
+    @Column(name = "environment")
     String environment;
+    @Column(name = "url")
     String url;
-    int passed;
-    int failed;
-    int skipped;
+    @Column(name = "passed")
+    Integer passed;
+    @Column(name = "failed")
+    Integer failed;
+    @Column(name = "skipped")
+    Integer skipped;
+    @Column(name = "duration")
     String duration;
+    @Column(name = "status")
     String status;
+
 }
