@@ -1,11 +1,14 @@
 package com.dashboard.automation.repositories;
 
+import com.dashboard.automation.modal.domain.Suite;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public interface SuiteRepository {
+public interface SuiteRepository extends JpaRepository<Suite,Integer> {
 
-        public List getSuitesByRunId(Integer runId);
+         List<Suite> findAllByRunId(Integer runId);
+
 }
